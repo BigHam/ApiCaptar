@@ -16,7 +16,7 @@ public class Startup
             options.UseSqlServer("server= localhost;database= api-pesquisa;user id=rc;password=hhhjjj321;"));
 
 
-        
+        //aa
 
         services.AddControllers();
 
