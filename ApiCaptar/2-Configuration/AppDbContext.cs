@@ -8,12 +8,7 @@ namespace apiCaptar.Configuration
     {
         public MySQLContext(DbContextOptions<MySQLContext> options) : base(options) { }
 
-        public DbSet<Usuario> Usuarios
-        {
-            get; set;
-        }public DbSet<pesquisa> pesquisa
-        {
-            get; set;
-        }
+        public DbSet<Usuario> Usuarios{get; set;}
+        public DbSet<Pesquisa> Pesquisa{get; set;}
     }
 }

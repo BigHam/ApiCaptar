@@ -3,7 +3,7 @@
 namespace apiCaptar.ViewModels;
 
 
-public class UsuarioViewModel : pesquisa
+public class UsuarioViewModel : Pesquisa
 {
     public int Id
     {
@@ -22,6 +22,6 @@ public class UsuarioViewModel : pesquisa
         get; set;
     }
     
-    public List<pesquisa> pesquisas { get; set; }
+    public List<Pesquisa> pesquisas { get; set; }
 
 }

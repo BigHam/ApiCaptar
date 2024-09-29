@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace apiCaptar._3_ViewModels
 {
-    public class ViewModelsPesquisa : pesquisa
+    public class ViewModelsPesquisa : Pesquisa
     {
 
         
