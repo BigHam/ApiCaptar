@@ -32,4 +32,7 @@ public class pesquisaController : ControllerBase
         if (pes == null) return NotFound();
         return Ok(pes);
     }
+
+    
+
 }

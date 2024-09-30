@@ -1,4 +1,5 @@
 ﻿using apiCaptar.Data.ValueObjects;
+using apiCaptar.Repository.Implementation;
 using apiCaptar.Repository.Interface;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -32,4 +33,28 @@ public class usuariosController : ControllerBase
         if (user == null) return NotFound();
         return Ok(user);
     }
+
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] UsuarioVO userVO)
+    {
+        var user = await _repository.Create(userVO);
+        return CreatedAtAction(nameof(FindById), new { id = user.Id }, user);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] UsuarioVO userVO)
+    {
+        userVO.Id = id; // Certifique-se de que o ID está correto
+        var user = await _repository.Update(userVO);
+        return Ok(user);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(long id)
+    {
+        var result = await _repository.Delete(id);
+        if (!result) return NotFound();
+        return NoContent();
+    }
+
 }
