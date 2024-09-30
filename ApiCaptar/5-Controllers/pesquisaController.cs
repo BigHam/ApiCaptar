@@ -33,6 +33,27 @@ public class pesquisaController : ControllerBase
         return Ok(pes);
     }
 
-    
+    [HttpPost]
+    public async Task<IActionResult> Create([FromBody] pesquisaVO pesquisaVO)
+    {
+        var pesquisa = await _repository.Create(pesquisaVO);
+        return CreatedAtAction(nameof(FindById), new { id = pesquisa.Id }, pesquisa);
+    }
+
+    [HttpPut("{id}")]
+    public async Task<IActionResult> Update(int id, [FromBody] pesquisaVO pesquisaVO)
+    {
+        pesquisaVO.Id = id; 
+        var pesquisa = await _repository.Update(pesquisaVO);
+        return Ok(pesquisa);
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var result = await _repository.Delete(id);
+        if (!result) return NotFound();
+        return NoContent();
+    }
 
 }
