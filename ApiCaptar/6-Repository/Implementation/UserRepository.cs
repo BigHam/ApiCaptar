@@ -60,4 +60,27 @@ public class UserRepository : IUserRepository
         }
     }
 
+    public async Task<UsuarioVO> FindByEmailAndPassword(string email, string password)
+    {
+        // Verifica se existe um usuário com o email informado
+        var user = await _context.Usuarios
+            .FirstOrDefaultAsync(u => u.email == email);
+
+        // Se o usuário não existir, retorna null
+        if (user == null)
+        {
+            return null;
+        }
+
+        // Compara a senha diretamente
+        if (user.senha == password) // Aqui estamos comparando a senha diretamente
+        {
+            // Mapeia a entidade de volta para o VO
+            return _mapper.Map<UsuarioVO>(user);
+        }
+
+        return null; // Senha incorreta
+    }
+
+
 }

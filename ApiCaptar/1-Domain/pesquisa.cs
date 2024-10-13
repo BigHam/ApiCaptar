@@ -18,7 +18,7 @@ public class Pesquisa
     public Usuario Usuario { get; set; }
 
     [Column("data")]
-    public DateTime Data { get; set; }
+    public string Data { get; set; }
 
     [Column("bairro")]
     public string Bairro { get; set; }
@@ -30,10 +30,10 @@ public class Pesquisa
     public string Turno { get; set; }
 
     [Column("inicio")]
-    public DateTime Inicio { get; set; }
+    public string Inicio { get; set; }
 
     [Column("termino")]
-    public DateTime Termino { get; set; }
+    public string Termino { get; set; }
 
     [Column("duracao")]
     public string Duracao { get; set; }
@@ -51,13 +51,31 @@ public class Pesquisa
     public string OrientacaoSexual { get; set; }
 
     [Column("idade")]
-    public int Idade { get; set; }
+    public string Idade { get; set; }
 
     [Column("raca_ou_cor")]
     public string RacaOuCor { get; set; }
 
-    [Column("documentacao")]
-    public string Documentacao { get; set; }
+    [Column("documentacaoRG")]
+    public string DocumentacaoRG { get; set; }
+
+    [Column("documentacaoCPF")]
+    public string DocumentacaoCPF
+    {
+        get; set;
+    }
+
+    [Column("documentacaoCertidaoNascimento")]
+    public string DocumentacaoCertidaoNascimento
+    {
+        get; set;
+    }
+    
+    [Column("outrosDocumentos")]
+    public string outrosDocumentos
+    {
+        get; set;
+    }
 
     [Column("local_de_nascimento")]
     public string LocalDeNascimento { get; set; }
@@ -93,7 +111,7 @@ public class Pesquisa
     public string DormiaAondeAntesDaRua { get; set; }
 
     [Column("tem_filhos")]
-    public bool TemFilhos { get; set; }
+    public string TemFilhos { get; set; }
 
     [Column("filhos_tambem_moram_na_rua")]
     public string FilhosTambemMoramNaRua { get; set; }
@@ -102,7 +120,7 @@ public class Pesquisa
     public string QualIdadeDosFilhos { get; set; }
 
     [Column("possui_contato_com_familia_de_origem")]
-    public bool PossuiContatoComFamiliaDeOrigem { get; set; }
+    public string PossuiContatoComFamiliaDeOrigem { get; set; }
 
     [Column("quanto_tempo_faz_contato")]
     public string QuantoTempoFazContato { get; set; }
@@ -117,7 +135,7 @@ public class Pesquisa
     public string SeAlimentaQuantasVezesPorDia { get; set; }
 
     [Column("usou_algum_servico_do_municipio_nos_ultimos_12_meses")]
-    public bool UsouAlgumServicoDoMunicipioNosUltimos12Meses { get; set; }
+    public string UsouAlgumServicoDoMunicipioNosUltimos12Meses { get; set; }
 
     [Column("qual_servico_usou")]
     public string QualServicoUsou { get; set; }
@@ -144,10 +162,10 @@ public class Pesquisa
     public string QualBeneficio { get; set; }
 
     [Column("esta_gravida")]
-    public bool EstaGravida { get; set; }
+    public string EstaGravida { get; set; }
 
     [Column("ja_teve_filhos")]
-    public bool JaTeveFilhos { get; set; }
+    public string JaTeveFilhos { get; set; }
 
     [Column("tem_problema_de_saude")]
     public string TemProblemaDeSaude { get; set; }
@@ -195,7 +213,7 @@ public class Pesquisa
     public string TemAcessoAAtividadeCultural { get; set; }
 
     [Column("frequenta_alguma_religiao")]
-    public bool FrequentaAlgumaReligiao { get; set; }
+    public string FrequentaAlgumaReligiao { get; set; }
 
     [Column("qual_religiao")]
     public string QualReligiao { get; set; }
@@ -204,10 +222,10 @@ public class Pesquisa
     public string RespeitadoComoPessoa { get; set; }
 
     [Column("tem_deficiencia")]
-    public bool TemDeficiencia { get; set; }
+    public string TemDeficiencia { get; set; }
 
     [Column("vive_com_a_familia_na_rua")]
-    public bool ViveComAFamiliaNaRua { get; set; }
+    public string ViveComAFamiliaNaRua { get; set; }
 
     [Column("situacao_de_abrigo")]
     public string SituacaoDeAbrigo { get; set; }

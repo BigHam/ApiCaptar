@@ -26,7 +26,7 @@ namespace apiCaptar._3_ViewModels
 
 
        
-        public DateTime Data
+        public string Data
         {
             get; set;
         }
@@ -50,13 +50,13 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public DateTime Inicio
+        public string Inicio
         {
             get; set;
         }
 
         
-        public DateTime Termino
+        public string Termino
         {
             get; set;
         }
@@ -92,7 +92,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public int Idade
+        public string Idade
         {
             get; set;
         }
@@ -104,12 +104,26 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string Documentacao
+        public string DocumentacaoRG
         {
             get; set;
         }
 
+        public string DocumentacaoCPF
+        {
+            get; set;
+        }
+        public string DocumentacaoCertidaoNascimento
+        {
+            get; set;
+        }
         
+        public string outrosDocumentos
+        {
+            get; set;
+        }
+
+
         public string LocalDeNascimento
         {
             get; set;
@@ -176,7 +190,7 @@ namespace apiCaptar._3_ViewModels
         }
 
        
-        public bool TemFilhos
+        public string TemFilhos
         {
             get; set;
         }
@@ -194,7 +208,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public bool PossuiContatoComFamiliaDeOrigem
+        public string PossuiContatoComFamiliaDeOrigem
         {
             get; set;
         }
@@ -224,7 +238,7 @@ namespace apiCaptar._3_ViewModels
         }
 
        
-        public bool UsouAlgumServicoDoMunicipioNosUltimos12Meses
+        public string UsouAlgumServicoDoMunicipioNosUltimos12Meses
         {
             get; set;
         }
@@ -278,13 +292,13 @@ namespace apiCaptar._3_ViewModels
         }
 
        
-        public bool EstaGravida
+        public string EstaGravida
         {
             get; set;
         }
 
        
-        public bool JaTeveFilhos
+        public string JaTeveFilhos
         {
             get; set;
         }
@@ -380,7 +394,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public bool FrequentaAlgumaReligiao
+        public string FrequentaAlgumaReligiao
         {
             get; set;
         }
@@ -398,13 +412,13 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public bool TemDeficiencia
+        public string TemDeficiencia
         {
             get; set;
         }
 
         
-        public bool ViveComAFamiliaNaRua
+        public string ViveComAFamiliaNaRua
         {
             get; set;
         }

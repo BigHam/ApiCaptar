@@ -9,4 +9,6 @@ public interface IUserRepository
     Task<UsuarioVO> Create(UsuarioVO vo);
     Task<UsuarioVO> Update(UsuarioVO vo);
     Task<bool> Delete(long id);
+    Task<UsuarioVO> FindByEmailAndPassword(string email, string password);
+
 }

@@ -24,16 +24,17 @@ builder.Services.AddScoped<IpesquisaRepository, PesquisaRepository>();
 
 builder.Services.AddControllers();
 
-
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", policy =>
     {
-        policy.AllowAnyOrigin()      // Allows requests from any origin
-              .AllowAnyMethod()      // Allows any HTTP method (GET, POST, PUT, DELETE, etc.)
-              .AllowAnyHeader();     // Allows any headers
+        policy.AllowAnyOrigin()      // Permite solicitações de qualquer origem
+              .AllowAnyMethod()      // Permite qualquer método HTTP (GET, POST, etc.)
+              .AllowAnyHeader();     // Permite qualquer cabeçalho
     });
 });
+
+
 
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -50,6 +51,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowAll");
 
 app.UseAuthentication();
 

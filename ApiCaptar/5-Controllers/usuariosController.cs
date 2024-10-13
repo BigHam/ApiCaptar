@@ -27,7 +27,7 @@ public class usuariosController : ControllerBase
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<UsuarioVO>> FindById(long id)
+    public async Task<ActionResult<UsuarioVO>> FindById([FromQuery] int id)
     {
         var user = await _repository.FindById(id);
         if (user == null) return NotFound();
@@ -57,4 +57,23 @@ public class usuariosController : ControllerBase
         return NoContent();
     }
 
+    [HttpGet("authenticate")]
+    public async Task<ActionResult<UsuarioVO>> Authenticate([FromQuery] string email, [FromQuery] string senha)
+    {
+        if ( string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+        {
+            return BadRequest("Email and password must be provided.");
+        }
+
+        var user =  await _repository.FindByEmailAndPassword(email, senha);
+        if (user == null) return Unauthorized();
+
+        return Ok(user);
+    }
+
+}
+public class AuthRequest
+{
+    public string Email { get; set; }
+    public string Password { get; set; }
 }

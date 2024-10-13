@@ -34,9 +34,9 @@ public class pesquisaController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] pesquisaVO pesquisaVO)
+    public async Task<IActionResult> Create([FromBody] pesquisaVO pesquisaVOo)
     {
-        var pesquisa = await _repository.Create(pesquisaVO);
+        var pesquisa = await _repository.Create(pesquisaVOo);
         return CreatedAtAction(nameof(FindById), new { id = pesquisa.Id }, pesquisa);
     }
 
