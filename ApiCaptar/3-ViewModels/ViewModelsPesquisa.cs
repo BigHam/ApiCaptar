@@ -26,7 +26,7 @@ namespace apiCaptar._3_ViewModels
 
 
        
-        public string Data
+        public string? Data
         {
             get; set;
         }
@@ -62,7 +62,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string Duracao
+        public string? Duracao
         {
             get; set;
         }
@@ -160,24 +160,6 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string Desemprego
-        {
-            get; set;
-        }
-
-        
-        public string Ameaça
-        {
-            get; set;
-        }
-
-        
-        public string Preferencia
-        {
-            get; set;
-        }
-
-        
         public string QuantoTempoNaRua
         {
             get; set;
@@ -190,19 +172,19 @@ namespace apiCaptar._3_ViewModels
         }
 
        
-        public string TemFilhos
+        public string? TemFilhos
         {
             get; set;
         }
 
        
-        public string FilhosTambemMoramNaRua
+        public string? FilhosTambemMoramNaRua
         {
             get; set;
         }
 
         
-        public string QualIdadeDosFilhos
+        public string? QualIdadeDosFilhos
         {
             get; set;
         }
@@ -214,13 +196,13 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string QuantoTempoFazContato
+        public string? QuantoTempoFazContato
         {
             get; set;
         }
 
         
-        public string ComQuemTemContato
+        public string? ComQuemTemContato
         {
             get; set;
         }
@@ -244,7 +226,7 @@ namespace apiCaptar._3_ViewModels
         }
 
        
-        public string QualServicoUsou
+        public string? QualServicoUsou
         {
             get; set;
         }
@@ -256,7 +238,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string FoiDeCarteiraAssinada
+        public string? FoiDeCarteiraAssinada
         {
             get; set;
         }
@@ -268,7 +250,7 @@ namespace apiCaptar._3_ViewModels
         }
 
        
-        public string OQueFazParaGanharDinheiro
+        public string? OQueFazParaGanharDinheiro
         {
             get; set;
         }
@@ -286,19 +268,19 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string QualBeneficio
+        public string? QualBeneficio
         {
             get; set;
         }
 
        
-        public string EstaGravida
+        public string? EstaGravida
         {
             get; set;
         }
 
        
-        public string JaTeveFilhos
+        public string? JaTeveFilhos
         {
             get; set;
         }
@@ -310,19 +292,19 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string QuaisProblemasDeSaude
+        public string? QuaisProblemasDeSaude
         {
             get; set;
         }
 
         
-        public string FazTratamentoDeSaude
+        public string? FazTratamentoDeSaude
         {
             get; set;
         }
 
         
-        public string TomaMedicacao
+        public string? TomaMedicacao
         {
             get; set;
         }
@@ -400,7 +382,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string QualReligiao
+        public string? QualReligiao
         {
             get; set;
         }

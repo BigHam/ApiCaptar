@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apiCaptar.Configuration;
 
@@ -10,9 +11,11 @@ using apiCaptar.Configuration;
 namespace apiCaptar.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    partial class MySQLContextModelSnapshot : ModelSnapshot
+    [Migration("20241014120757_laks")]
+    partial class laks
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -110,6 +113,7 @@ namespace apiCaptar.Migrations
                         .HasColumnName("dormia_aonde_antes_da_rua");
 
                     b.Property<string>("Duracao")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("duracao");
 

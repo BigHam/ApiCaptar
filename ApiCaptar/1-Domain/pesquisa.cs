@@ -18,7 +18,7 @@ public class Pesquisa
     public Usuario Usuario { get; set; }
 
     [Column("data")]
-    public string Data { get; set; }
+    public string? Data { get; set; }
 
     [Column("bairro")]
     public string Bairro { get; set; }
@@ -36,7 +36,7 @@ public class Pesquisa
     public string Termino { get; set; }
 
     [Column("duracao")]
-    public string Duracao { get; set; }
+    public string? Duracao { get; set; }
 
     [Column("justificativa")]
     public string Justificativa { get; set; }
@@ -95,14 +95,6 @@ public class Pesquisa
     [Column("motivo_de_estar_na_rua")]
     public string MotivoDeEstarNaRua { get; set; }
 
-    [Column("desemprego")]
-    public string Desemprego { get; set; }
-
-    [Column("ameaca")]
-    public string Ameaça { get; set; }
-
-    [Column("preferencia")]
-    public string Preferencia { get; set; }
 
     [Column("quanto_tempo_na_rua")]
     public string QuantoTempoNaRua { get; set; }
@@ -114,19 +106,19 @@ public class Pesquisa
     public string TemFilhos { get; set; }
 
     [Column("filhos_tambem_moram_na_rua")]
-    public string FilhosTambemMoramNaRua { get; set; }
+    public string? FilhosTambemMoramNaRua { get; set; }
 
     [Column("qual_idade_dos_filhos")]
-    public string QualIdadeDosFilhos { get; set; }
+    public string? QualIdadeDosFilhos { get; set; }
 
     [Column("possui_contato_com_familia_de_origem")]
     public string PossuiContatoComFamiliaDeOrigem { get; set; }
 
     [Column("quanto_tempo_faz_contato")]
-    public string QuantoTempoFazContato { get; set; }
+    public string? QuantoTempoFazContato { get; set; }
 
     [Column("com_quem_tem_contato")]
-    public string ComQuemTemContato { get; set; }
+    public string? ComQuemTemContato { get; set; }
 
     [Column("se_quisesse_sair_da_rua_teria_lugar_para_voltar")]
     public string SeQuisesseSairDaRuaTeriaLugarParaVoltar { get; set; }
@@ -138,19 +130,19 @@ public class Pesquisa
     public string UsouAlgumServicoDoMunicipioNosUltimos12Meses { get; set; }
 
     [Column("qual_servico_usou")]
-    public string QualServicoUsou { get; set; }
+    public string? QualServicoUsou { get; set; }
 
     [Column("ja_trabalhou_antes_de_morar_na_rua")]
     public string JaTrabalhouAntesDeMorarNaRua { get; set; }
 
     [Column("foi_de_carteira_assinada")]
-    public string FoiDeCarteiraAssinada { get; set; }
+    public string? FoiDeCarteiraAssinada { get; set; }
 
     [Column("tem_alguma_renda_na_rua")]
     public string TemAlgumaRendaNaRua { get; set; }
 
     [Column("o_que_faz_para_ganhar_dinheiro")]
-    public string OQueFazParaGanharDinheiro { get; set; }
+    public string? OQueFazParaGanharDinheiro { get; set; }
 
     [Column("possui_cadastro_unico")]
     public string PossuiCadastroUnico { get; set; }
@@ -159,25 +151,25 @@ public class Pesquisa
     public string RecebeAlgumBeneficio { get; set; }
 
     [Column("qual_beneficio")]
-    public string QualBeneficio { get; set; }
+    public string? QualBeneficio { get; set; }
 
     [Column("esta_gravida")]
-    public string EstaGravida { get; set; }
+    public string? EstaGravida { get; set; }
 
     [Column("ja_teve_filhos")]
-    public string JaTeveFilhos { get; set; }
+    public string? JaTeveFilhos { get; set; }
 
     [Column("tem_problema_de_saude")]
     public string TemProblemaDeSaude { get; set; }
 
     [Column("quais_problemas_de_saude")]
-    public string QuaisProblemasDeSaude { get; set; }
+    public string? QuaisProblemasDeSaude { get; set; }
 
     [Column("faz_tratamento_de_saude")]
-    public string FazTratamentoDeSaude { get; set; }
+    public string? FazTratamentoDeSaude { get; set; }
 
     [Column("toma_medicacao")]
-    public string TomaMedicacao { get; set; }
+    public string? TomaMedicacao { get; set; }
 
     [Column("ja_frequentou_o_caps")]
     public string JaFrequentouOCaps { get; set; }

@@ -11,8 +11,8 @@ using apiCaptar.Configuration;
 namespace apiCaptar.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20241011105042_Api")]
-    partial class Api
+    [Migration("20241014120332_sla")]
+    partial class sla
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -62,10 +62,6 @@ namespace apiCaptar.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Ameaça")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("ameaca");
-
                     b.Property<string>("Bairro")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -95,11 +91,6 @@ namespace apiCaptar.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("data");
-
-                    b.Property<string>("Desemprego")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("desemprego");
 
                     b.Property<string>("DocumentacaoCPF")
                         .IsRequired()
@@ -152,7 +143,6 @@ namespace apiCaptar.Migrations
                         .HasColumnName("filhos_tambem_moram_na_rua");
 
                     b.Property<string>("FoiDeCarteiraAssinada")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("foi_de_carteira_assinada");
 
@@ -250,13 +240,7 @@ namespace apiCaptar.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("possui_contato_com_familia_de_origem");
 
-                    b.Property<string>("Preferencia")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("preferencia");
-
                     b.Property<string>("QuaisProblemasDeSaude")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("quais_problemas_de_saude");
 
@@ -266,22 +250,18 @@ namespace apiCaptar.Migrations
                         .HasColumnName("qual_beneficio");
 
                     b.Property<string>("QualIdadeDosFilhos")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("qual_idade_dos_filhos");
 
                     b.Property<string>("QualReligiao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("qual_religiao");
 
                     b.Property<string>("QualServicoUsou")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("qual_servico_usou");
 
                     b.Property<string>("QuantoTempoFazContato")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("quanto_tempo_faz_contato");
 
@@ -376,7 +356,6 @@ namespace apiCaptar.Migrations
                         .HasColumnName("territorio");
 
                     b.Property<string>("TomaMedicacao")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("toma_medicacao");
 
@@ -417,8 +396,7 @@ namespace apiCaptar.Migrations
                     b.HasOne("apiCaptar.Usuario", "Usuario")
                         .WithMany()
                         .HasForeignKey("IdDoUsuario")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.Navigation("Usuario");
                 });
