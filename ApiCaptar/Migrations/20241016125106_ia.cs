@@ -5,7 +5,7 @@
 namespace apiCaptar.Migrations
 {
     /// <inheritdoc />
-    public partial class sla : Migration
+    public partial class ia : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -31,8 +31,9 @@ namespace apiCaptar.Migrations
                 {
                     id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    id_do_usuario = table.Column<int>(type: "int", nullable: true),
-                    data = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    idUsuario = table.Column<int>(type: "int", nullable: false),
+                    IdDoUsuario = table.Column<int>(type: "int", nullable: false),
+                    data = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     bairro = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     territorio = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     turno = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -70,12 +71,12 @@ namespace apiCaptar.Migrations
                     ja_trabalhou_antes_de_morar_na_rua = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     foi_de_carteira_assinada = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     tem_alguma_renda_na_rua = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    o_que_faz_para_ganhar_dinheiro = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    o_que_faz_para_ganhar_dinheiro = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     possui_cadastro_unico = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     recebe_algum_beneficio = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    qual_beneficio = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    esta_gravida = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    ja_teve_filhos = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    qual_beneficio = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    esta_gravida = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ja_teve_filhos = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     tem_problema_de_saude = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     quais_problemas_de_saude = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     faz_tratamento_de_saude = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -92,7 +93,7 @@ namespace apiCaptar.Migrations
                     o_que_precisa_para_sair_das_ruas = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tem_acesso_a_atividade_cultural = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     frequenta_alguma_religiao = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    qual_religiao = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    qual_religiao = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     respeitado_como_pessoa = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     tem_deficiencia = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     vive_com_a_familia_na_rua = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -102,17 +103,17 @@ namespace apiCaptar.Migrations
                 {
                     table.PrimaryKey("PK_pesquisas", x => x.id);
                     table.ForeignKey(
-                        name: "FK_pesquisas_cad_usuario_id_do_usuario",
-                        column: x => x.id_do_usuario,
+                        name: "FK_pesquisas_cad_usuario_IdDoUsuario",
+                        column: x => x.IdDoUsuario,
                         principalTable: "cad_usuario",
                         principalColumn: "id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_pesquisas_id_do_usuario",
+                name: "IX_pesquisas_IdDoUsuario",
                 table: "pesquisas",
-                column: "id_do_usuario");
+                column: "IdDoUsuario");
         }
 
         /// <inheritdoc />

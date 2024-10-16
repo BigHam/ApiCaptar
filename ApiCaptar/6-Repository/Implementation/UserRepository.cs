@@ -25,7 +25,7 @@ public class UserRepository : IUserRepository
 
     public async Task<UsuarioVO> FindById(long id)
     {
-        Usuario user = await _context.Usuarios.Where(u => u.Id == id).FirstOrDefaultAsync();
+        Usuario user = await _context.Usuarios.Where(u => u.id == id).FirstOrDefaultAsync();
         return _mapper.Map<UsuarioVO>(user);
     }
     public async Task<UsuarioVO> Create(UsuarioVO vo)
@@ -48,7 +48,7 @@ public class UserRepository : IUserRepository
     {
         try
         {
-            Usuario user = await _context.Usuarios.Where(u => u.Id == id).FirstOrDefaultAsync();
+            Usuario user = await _context.Usuarios.Where(u => u.id == id).FirstOrDefaultAsync();
             if (user == null) return false;
             _context.Usuarios.Remove(user);
             await _context.SaveChangesAsync();

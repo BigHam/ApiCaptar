@@ -3,16 +3,16 @@
 public class pesquisaVO
 {
     public int IdPesquisa   { get; set; }
-    public int Id   { get; set;}
-    public Usuario Usuario  {get; set;}
+    public int? IdUsuario  { get; set; }
+    public Usuario? Usuario  {get; set;}
     public string? Data    {get; set;}
     public string Bairro    {get; set;}
-    public string Territorio    {get; set;}
+    public string? Territorio    {get; set;}
     public string Turno {get; set;}
     public string Inicio  {get; set;}
     public string Termino {get; set;}
     public string? Duracao   {get; set;}
-    public string Justificativa {get; set;}
+    public string? Justificativa {get; set;}
     public string SituacaoDeRua {get; set;}
     public string Sexo  {get; set;}
     public string OrientacaoSexual  {get; set;}

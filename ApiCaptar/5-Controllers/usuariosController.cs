@@ -38,13 +38,13 @@ public class usuariosController : ControllerBase
     public async Task<IActionResult> Create([FromBody] UsuarioVO userVO)
     {
         var user = await _repository.Create(userVO);
-        return CreatedAtAction(nameof(FindById), new { id = user.Id }, user);
+        return CreatedAtAction(nameof(FindById), new { id = user.id }, user);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] UsuarioVO userVO)
     {
-        userVO.Id = id; // Certifique-se de que o ID está correto
+        userVO.id = id; // Certifique-se de que o ID está correto
         var user = await _repository.Update(userVO);
         return Ok(user);
     }

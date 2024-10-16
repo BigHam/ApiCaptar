@@ -37,13 +37,13 @@ public class pesquisaController : ControllerBase
     public async Task<IActionResult> Create([FromBody] pesquisaVO pesquisaVOo)
     {
         var pesquisa = await _repository.Create(pesquisaVOo);
-        return CreatedAtAction(nameof(FindById), new { id = pesquisa.Id }, pesquisa);
+        return CreatedAtAction(nameof(FindById), new { id = pesquisa.IdPesquisa }, pesquisa);
     }
 
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] pesquisaVO pesquisaVO)
     {
-        pesquisaVO.Id = id; 
+        pesquisaVO.IdUsuario = id; 
         var pesquisa = await _repository.Update(pesquisaVO);
         return Ok(pesquisa);
     }

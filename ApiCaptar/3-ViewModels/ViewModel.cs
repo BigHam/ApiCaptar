@@ -5,7 +5,7 @@ namespace apiCaptar.ViewModels;
 
 public class UsuarioViewModel : Pesquisa
 {
-    public int Id
+    public int id
     {
         get; set;
     }

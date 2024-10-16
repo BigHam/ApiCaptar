@@ -12,8 +12,8 @@ namespace apiCaptar._3_ViewModels
             get; set;
         }
 
-        
-        public int Id
+
+        public int? idUsuario
         {
             get; set;
         }
@@ -25,7 +25,6 @@ namespace apiCaptar._3_ViewModels
 
 
 
-       
         public string? Data
         {
             get; set;
@@ -38,7 +37,7 @@ namespace apiCaptar._3_ViewModels
         }
 
         
-        public string Territorio
+        public string? Territorio
         {
             get; set;
         }

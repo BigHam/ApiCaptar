@@ -26,7 +26,7 @@ public class PesquisaRepository : IpesquisaRepository
 
     public async Task<pesquisaVO> FindById(long id)
     {
-        Usuario pesq = await _context.Usuarios.Where(u => u.Id == id).FirstOrDefaultAsync();
+        Usuario pesq = await _context.Usuarios.Where(u => u.id == id).FirstOrDefaultAsync();
         return _mapper.Map<pesquisaVO>(pesq);
     }
     public async Task<pesquisaVO> Create(pesquisaVO vo)

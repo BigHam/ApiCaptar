@@ -11,11 +11,12 @@ public class Pesquisa
     [Column("id")]
     public int Id { get; set; }
 
-    [Column("id_do_usuario")]
-    public int IdDoUsuario { get; set; }  // Chave estrangeira
+    [Column("idUsuario")]
+    public int id { get; set; }  // Chave estrangeira
 
     [ForeignKey("IdDoUsuario")]  // Define a chave estrangeira para a relação com Usuario
     public Usuario Usuario { get; set; }
+
 
     [Column("data")]
     public string? Data { get; set; }
