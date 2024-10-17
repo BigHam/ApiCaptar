@@ -1,7 +1,11 @@
-﻿using apiCaptar.Data.ValueObjects;
+﻿using apiCaptar._1_Domain;
+using apiCaptar.Configuration;
+using apiCaptar.Data.ValueObjects;
 using apiCaptar.Repository.Interface;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace apiCaptar.Controllers;
 
@@ -9,11 +13,14 @@ namespace apiCaptar.Controllers;
 [ApiController]
 public class pesquisaController : ControllerBase
 {
-
+    private readonly MySQLContext _context;
+    private readonly IMapper _mapper;
     private IpesquisaRepository _repository;
 
-    public pesquisaController(IpesquisaRepository repository)
+    public pesquisaController(IpesquisaRepository repository, MySQLContext context, IMapper mapper)
     {
+        _context = context;
+        _mapper = mapper;
         _repository = repository ?? throw new
              ArgumentNullException(nameof(repository));
     }
@@ -34,8 +41,22 @@ public class pesquisaController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create([FromBody] pesquisaVO pesquisaVOo)
+    public async Task<IActionResult> Create([FromBody] pesquisaVO pesquisaVOo )
     {
+
+        //var pesquisa = _mapper.Map<Pesquisa>(pesquisaVOo);
+        //// Verifique se o UsuarioId está correto e se o usuário existe
+        //// Por exemplo:
+        //var usuario = _context.Usuarios.Find(pesquisa.Usuario);
+        //if (usuario == null)
+        //{
+        //    throw new Exception("Usuário não encontrado.");
+        //}
+
+        //_context.Pesquisa.Add(pesquisa);
+        //_context.SaveChanges();
+        //return CreatedAtAction(nameof(FindById), new { id = pesquisa.Id }, pesquisa);
+
         var pesquisa = await _repository.Create(pesquisaVOo);
         return CreatedAtAction(nameof(FindById), new { id = pesquisa.IdPesquisa }, pesquisa);
     }
@@ -43,7 +64,7 @@ public class pesquisaController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] pesquisaVO pesquisaVO)
     {
-        pesquisaVO.IdUsuario = id; 
+        pesquisaVO.UsuarioId = id; 
         var pesquisa = await _repository.Update(pesquisaVO);
         return Ok(pesquisa);
     }

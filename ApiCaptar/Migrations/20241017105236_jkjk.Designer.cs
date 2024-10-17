@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apiCaptar.Configuration;
 
@@ -10,9 +11,11 @@ using apiCaptar.Configuration;
 namespace apiCaptar.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    partial class MySQLContextModelSnapshot : ModelSnapshot
+    [Migration("20241017105236_jkjk")]
+    partial class jkjk
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -355,8 +358,7 @@ namespace apiCaptar.Migrations
                         .HasColumnName("usou_algum_servico_do_municipio_nos_ultimos_12_meses");
 
                     b.Property<int>("UsuarioId")
-                        .HasColumnType("int")
-                        .HasColumnName("UsuarioId");
+                        .HasColumnType("int");
 
                     b.Property<string>("ViveComAFamiliaNaRua")
                         .IsRequired()
@@ -383,12 +385,17 @@ namespace apiCaptar.Migrations
             modelBuilder.Entity("apiCaptar._1_Domain.Pesquisa", b =>
                 {
                     b.HasOne("apiCaptar.Usuario", "Usuario")
-                        .WithMany()
+                        .WithMany("Pesquisas")
                         .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Usuario");
+                });
+
+            modelBuilder.Entity("apiCaptar.Usuario", b =>
+                {
+                    b.Navigation("Pesquisas");
                 });
 #pragma warning restore 612, 618
         }

@@ -22,6 +22,6 @@ public class UsuarioViewModel : Pesquisa
         get; set;
     }
     
-    public List<Pesquisa> pesquisas { get; set; }
+    
 
 }

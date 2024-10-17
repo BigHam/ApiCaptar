@@ -6,20 +6,22 @@ namespace apiCaptar._3_ViewModels
     public class ViewModelsPesquisa : Pesquisa
     {
 
-        
         public int IdPesquisa
         {
-            get; set;
+            get => Id;  // Assuming you want to expose Id as IdPesquisa
+            set => Id = value;
         }
 
-
-        public int? idUsuario
+        public new int? UsuarioId  // Hides the base class property if necessary
         {
-            get; set;
+            get => base.UsuarioId;  // Use base to refer to the original property
+            set => base.UsuarioId = (int)value;
         }
-        public Usuario usuarioo
+
+        public new Usuario Usuario  // Hides the base class navigation property if necessary
         {
-            get; set;
+            get => base.Usuario;  // Use base to refer to the original property
+            set => base.Usuario = value;
         }
 
 

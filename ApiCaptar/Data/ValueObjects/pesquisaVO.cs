@@ -2,9 +2,14 @@
 
 public class pesquisaVO
 {
-    public int IdPesquisa   { get; set; }
-    public int? IdUsuario  { get; set; }
-    public Usuario? Usuario  {get; set;}
+    public int IdPesquisa
+    {
+        get; set;
+    }
+    public int UsuarioId
+    {
+        get; set;
+    }
     public string? Data    {get; set;}
     public string Bairro    {get; set;}
     public string? Territorio    {get; set;}
@@ -70,6 +75,8 @@ public class pesquisaVO
     public string TemDeficiencia { get; set; }
     public string ViveComAFamiliaNaRua { get; set; }
     public string SituacaoDeAbrigo { get; set; }
+
+
 
 
 }

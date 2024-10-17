@@ -11,8 +11,8 @@ using apiCaptar.Configuration;
 namespace apiCaptar.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    [Migration("20241016125106_ia")]
-    partial class ia
+    [Migration("20241017122648_sla")]
+    partial class sla
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -149,9 +149,6 @@ namespace apiCaptar.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("gostaria_de_voltar_a_estudar");
-
-                    b.Property<int>("IdDoUsuario")
-                        .HasColumnType("int");
 
                     b.Property<string>("Idade")
                         .IsRequired()
@@ -360,6 +357,10 @@ namespace apiCaptar.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("usou_algum_servico_do_municipio_nos_ultimos_12_meses");
 
+                    b.Property<int>("UsuarioId")
+                        .HasColumnType("int")
+                        .HasColumnName("UsuarioId");
+
                     b.Property<string>("ViveComAFamiliaNaRua")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -370,10 +371,6 @@ namespace apiCaptar.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("voltaria_para_cidade_natal");
 
-                    b.Property<int>("id")
-                        .HasColumnType("int")
-                        .HasColumnName("idUsuario");
-
                     b.Property<string>("outrosDocumentos")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -381,7 +378,7 @@ namespace apiCaptar.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdDoUsuario");
+                    b.HasIndex("UsuarioId");
 
                     b.ToTable("pesquisas");
                 });
@@ -390,7 +387,7 @@ namespace apiCaptar.Migrations
                 {
                     b.HasOne("apiCaptar.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("IdDoUsuario")
+                        .HasForeignKey("UsuarioId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

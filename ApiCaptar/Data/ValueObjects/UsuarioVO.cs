@@ -1,4 +1,6 @@
-﻿namespace apiCaptar.Data.ValueObjects;
+﻿using apiCaptar._1_Domain;
+
+namespace apiCaptar.Data.ValueObjects;
 
 public class UsuarioVO
 {
@@ -6,4 +8,5 @@ public class UsuarioVO
     public string Nome  {get; set;}
     public string email {get; set;}
     public string senha {get; set;}
+
 }

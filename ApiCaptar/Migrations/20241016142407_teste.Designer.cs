@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using apiCaptar.Configuration;
 
@@ -10,9 +11,11 @@ using apiCaptar.Configuration;
 namespace apiCaptar.Migrations
 {
     [DbContext(typeof(MySQLContext))]
-    partial class MySQLContextModelSnapshot : ModelSnapshot
+    [Migration("20241016142407_teste")]
+    partial class teste
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -146,6 +149,9 @@ namespace apiCaptar.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("gostaria_de_voltar_a_estudar");
+
+                    b.Property<int>("IdDoUsuario")
+                        .HasColumnType("int");
 
                     b.Property<string>("Idade")
                         .IsRequired()
@@ -354,10 +360,6 @@ namespace apiCaptar.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("usou_algum_servico_do_municipio_nos_ultimos_12_meses");
 
-                    b.Property<int>("UsuarioId")
-                        .HasColumnType("int")
-                        .HasColumnName("UsuarioId");
-
                     b.Property<string>("ViveComAFamiliaNaRua")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -368,6 +370,10 @@ namespace apiCaptar.Migrations
                         .HasColumnType("nvarchar(max)")
                         .HasColumnName("voltaria_para_cidade_natal");
 
+                    b.Property<int>("idUsuario")
+                        .HasColumnType("int")
+                        .HasColumnName("idUsuario");
+
                     b.Property<string>("outrosDocumentos")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)")
@@ -375,7 +381,7 @@ namespace apiCaptar.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UsuarioId");
+                    b.HasIndex("IdDoUsuario");
 
                     b.ToTable("pesquisas");
                 });
@@ -384,7 +390,7 @@ namespace apiCaptar.Migrations
                 {
                     b.HasOne("apiCaptar.Usuario", "Usuario")
                         .WithMany()
-                        .HasForeignKey("UsuarioId")
+                        .HasForeignKey("IdDoUsuario")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

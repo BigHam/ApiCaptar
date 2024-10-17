@@ -5,7 +5,7 @@
 namespace apiCaptar.Migrations
 {
     /// <inheritdoc />
-    public partial class ia : Migration
+    public partial class teste : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

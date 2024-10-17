@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using apiCaptar._1_Domain;
 
 namespace apiCaptar;
 [Table("cad_usuario")]
@@ -17,4 +18,6 @@ public class Usuario
 
     [Column("senha")]
     public string senha{get; set;}
+
+    
 }

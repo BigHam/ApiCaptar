@@ -11,11 +11,17 @@ public class Pesquisa
     [Column("id")]
     public int Id { get; set; }
 
-    [Column("idUsuario")]
-    public int id { get; set; }  // Chave estrangeira
+    [Column("UsuarioId")]
+    public int UsuarioId
+    {
+        get; set;
+    }  // Foreign key
 
-    [ForeignKey("IdDoUsuario")]  // Define a chave estrangeira para a relação com Usuario
-    public Usuario Usuario { get; set; }
+    [ForeignKey("UsuarioId")]  // Define the foreign key relationship with Usuario
+    public virtual Usuario Usuario
+    {
+        get; set;
+    }
 
 
     [Column("data")]
@@ -71,7 +77,7 @@ public class Pesquisa
     {
         get; set;
     }
-    
+
     [Column("outrosDocumentos")]
     public string outrosDocumentos
     {
@@ -222,4 +228,7 @@ public class Pesquisa
 
     [Column("situacao_de_abrigo")]
     public string SituacaoDeAbrigo { get; set; }
+
+    
+
 }
