@@ -26,7 +26,7 @@ public class pesquisaController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<pesquisaVO>>> FindAll(long id)
+    public async Task<ActionResult<IEnumerable<pesquisaVO>>> FindAll()
     {
         var pes = await _repository.FindAll();
         return Ok(pes);
@@ -36,8 +36,15 @@ public class pesquisaController : ControllerBase
     public async Task<ActionResult<pesquisaVO>> FindById(long id)
     {
         var pes = await _repository.FindById(id);
-        if (pes == null) return NotFound();
-        return Ok(pes);
+        if (pes == null)
+        {
+            return NotFound();
+        }
+        else
+        {
+            return Ok(pes);
+        }
+        
     }
 
     [HttpPost]
@@ -58,7 +65,7 @@ public class pesquisaController : ControllerBase
         //return CreatedAtAction(nameof(FindById), new { id = pesquisa.Id }, pesquisa);
 
         var pesquisa = await _repository.Create(pesquisaVOo);
-        return CreatedAtAction(nameof(FindById), new { id = pesquisa.IdPesquisa }, pesquisa);
+        return CreatedAtAction(nameof(FindById), new { id = pesquisa.id }, pesquisa);
     }
 
     [HttpPut("{id}")]
@@ -73,7 +80,7 @@ public class pesquisaController : ControllerBase
     public async Task<IActionResult> Delete(int id)
     {
         var result = await _repository.Delete(id);
-        if (!result) return NotFound();
+        if (result == null) return NotFound();
         return NoContent();
     }
 

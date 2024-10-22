@@ -6,7 +6,7 @@ namespace apiCaptar._3_ViewModels
     public class ViewModelsPesquisa : Pesquisa
     {
 
-        public int IdPesquisa
+        public int id
         {
             get => Id;  // Assuming you want to expose Id as IdPesquisa
             set => Id = value;

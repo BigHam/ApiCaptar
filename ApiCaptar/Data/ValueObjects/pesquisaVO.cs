@@ -2,7 +2,7 @@
 
 public class pesquisaVO
 {
-    public int IdPesquisa
+    public int id
     {
         get; set;
     }

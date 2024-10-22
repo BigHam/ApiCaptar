@@ -8,6 +8,7 @@ namespace apiCaptar._1_Domain;
 public class Pesquisa
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("id")]
     public int Id { get; set; }
 

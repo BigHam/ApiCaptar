@@ -7,6 +7,7 @@ namespace apiCaptar;
 public class Usuario
 {
     [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Column("id")]
     public int id { get; set; }
 
