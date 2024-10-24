@@ -26,7 +26,17 @@ public class PesquisaRepository : IpesquisaRepository
 
     public async Task<pesquisaVO> FindById(long id)
     {
-        Usuario pesq = await _context.Usuarios.Where(u => u.id == id).FirstOrDefaultAsync();
+        Console.WriteLine($"Buscando pesquisa com ID: {id}"); // Log para depuração
+
+        Pesquisa pesq = await _context.Pesquisa
+            .Where(u => u.Id == id)
+            .FirstOrDefaultAsync();
+
+        if (pesq == null)
+        {
+            Console.WriteLine("Pesquisa não encontrada."); // Log se não encontrar
+        }
+
         return _mapper.Map<pesquisaVO>(pesq);
     }
     public async Task<pesquisaVO> Create(pesquisaVO vo)

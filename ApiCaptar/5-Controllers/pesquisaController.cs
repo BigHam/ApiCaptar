@@ -40,11 +40,7 @@ public class pesquisaController : ControllerBase
         {
             return NotFound();
         }
-        else
-        {
-            return Ok(pes);
-        }
-        
+        return Ok(pes);
     }
 
     [HttpPost]
@@ -71,7 +67,7 @@ public class pesquisaController : ControllerBase
     [HttpPut("{id}")]
     public async Task<IActionResult> Update(int id, [FromBody] pesquisaVO pesquisaVO)
     {
-        pesquisaVO.UsuarioId = id; 
+        pesquisaVO.id= id; 
         var pesquisa = await _repository.Update(pesquisaVO);
         return Ok(pesquisa);
     }
