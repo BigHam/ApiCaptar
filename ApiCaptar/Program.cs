@@ -1,3 +1,5 @@
+using apiCaptar._6_Repository.Implementation;
+using apiCaptar._6_Repository.Interface;
 using apiCaptar.Config;
 using apiCaptar.Configuration;
 using apiCaptar.Repository;
@@ -21,6 +23,7 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IpesquisaRepository, PesquisaRepository>();
+builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
 
 builder.Services.AddControllers();
 

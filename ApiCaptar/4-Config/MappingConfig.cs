@@ -11,6 +11,10 @@ namespace apiCaptar.Config
                 config.CreateMap<UsuarioVO, Usuario>().ReverseMap();
                
                 config.CreateMap<pesquisaVO, Pesquisa>().ReverseMap();
+
+                config.CreateMap<atendimentoVO, atendimento>().ReverseMap();
+
+
                
             });
             return mappingConfing;

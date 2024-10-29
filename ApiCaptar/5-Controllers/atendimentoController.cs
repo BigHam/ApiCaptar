@@ -19,7 +19,7 @@ public class atendimentoController : ControllerBase
     private readonly IMapper _mapper;
     private IAtendimentoRepository _repository;
 
-    public atendimentoController(IpesquisaRepository repository, MySQLContext context, IMapper mapper)
+    public atendimentoController(IAtendimentoRepository repository, MySQLContext context, IMapper mapper)
     {
         _context = context;
         _mapper = mapper;
