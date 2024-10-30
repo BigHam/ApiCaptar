@@ -15,6 +15,13 @@ namespace apiCaptar._1_Domain
             get; set;
         }
 
+        [Column("data")]
+        [StringLength(500)]
+        public string data
+        {
+            get; set;
+        }
+
         [Column("municipio")]
         [StringLength(500)]
         public string municipio

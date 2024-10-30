@@ -11,6 +11,10 @@ namespace apiCaptar._3_ViewModels
         {
             get; set;
         }
+        public string data
+        {
+            get; set;
+        }
         public string municipio
         {
             get; set;

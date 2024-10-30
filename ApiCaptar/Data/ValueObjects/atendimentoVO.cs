@@ -6,6 +6,10 @@
         {
             get; set;
         }
+        public string data
+        {
+            get; set;
+        }
         public string municipio
         {
             get; set;
