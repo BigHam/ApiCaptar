@@ -23,11 +23,19 @@ public class UserRepository : IUserRepository
         return _mapper.Map<List<UsuarioVO>>(users);
     }
 
+
     public async Task<UsuarioVO> FindById(long id)
     {
         Usuario user = await _context.Usuarios.Where(u => u.id == id).FirstOrDefaultAsync();
         return _mapper.Map<UsuarioVO>(user);
     }
+
+    public async Task<UsuarioVO> FindByEmail(string email)
+    {
+        Usuario user = await _context.Usuarios.Where(u => u.email == email).FirstOrDefaultAsync();
+        return _mapper.Map<UsuarioVO>(user);
+    }
+
     public async Task<UsuarioVO> Create(UsuarioVO vo)
     {
         Usuario user = _mapper.Map<Usuario>(vo);
