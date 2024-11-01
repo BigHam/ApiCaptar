@@ -1,4 +1,5 @@
-﻿using apiCaptar.Data.ValueObjects;
+﻿using apiCaptar._6_Repository.Interface;
+using apiCaptar.Data.ValueObjects;
 using apiCaptar.Repository.Implementation;
 using apiCaptar.Repository.Interface;
 using Microsoft.AspNetCore.Http;
@@ -12,11 +13,13 @@ public class usuariosController : ControllerBase
 {
 
     private IUserRepository _repository;
+    private readonly ICaptarEmailSender _emailSender;
 
-    public usuariosController(IUserRepository repository)
+    public usuariosController(IUserRepository repository, ICaptarEmailSender emailSender)
     {
         _repository = repository ?? throw new
              ArgumentNullException(nameof(repository));
+        _emailSender = emailSender;
     }
 
     [HttpGet]
@@ -34,11 +37,26 @@ public class usuariosController : ControllerBase
         return Ok(user);
     }
 
+    [HttpGet("email/{email}")]
+    public async Task<ActionResult<UsuarioVO>> FindByEmail(string email)
+    {
+        var user = await _repository.FindByEmail(email);
+        if (user == null) return NotFound();
+        return Ok(user);
+    }
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] UsuarioVO userVO)
     {
         var user = await _repository.Create(userVO);
         return CreatedAtAction(nameof(FindById), new { id = user.id }, user);
+    }
+
+    [HttpPost("send-email")]
+    public async Task<IActionResult> SendEmail(string email, string subject, string message)
+    {
+        await _emailSender.SendEmailAsync(email, subject, message);
+        return Ok("E-mail enviado com sucesso!");
     }
 
     [HttpPut("{id}")]
@@ -65,7 +83,7 @@ public class usuariosController : ControllerBase
             return BadRequest("Email and password must be provided.");
         }
 
-        var user =  await _repository.FindByEmailAndPassword(email, senha);
+        var user =  await _repository.FindByEmail(email);
         if (user == null) return Unauthorized();
 
         return Ok(user);

@@ -1,3 +1,5 @@
+using apiCaptar._6_Repository.Implementation;
+using apiCaptar._6_Repository.Interface;
 using apiCaptar.Config;
 using apiCaptar.Configuration;
 using apiCaptar.Repository;
@@ -15,12 +17,16 @@ var connection = builder.Configuration["ConnectionStrings:sqlConexao"];
 builder.Services.AddDbContext<MySQLContext>(options => options.UseSqlServer(connection));
 
 
+
 IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
 builder.Services.AddSingleton(mapper);
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IpesquisaRepository, PesquisaRepository>();
+builder.Services.AddScoped<IAtendimentoRepository, AtendimentoRepository>();
+builder.Services.AddTransient<ICaptarEmailSender, SedGridEmailSender>();
+
 
 builder.Services.AddControllers();
 

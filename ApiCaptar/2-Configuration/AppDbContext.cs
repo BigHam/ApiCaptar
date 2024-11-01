@@ -10,6 +10,7 @@ namespace apiCaptar.Configuration
 
         public DbSet<Usuario> Usuarios{get; set;}
         public DbSet<Pesquisa> Pesquisa{get; set;}
+        public DbSet<atendimento> Atendimento{get; set;}
 
        
 
